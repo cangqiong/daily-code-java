@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>
+        </Console>
+
+        <RollingRandomAccessFile  name="FILE" fileName="/logs/spring-exercise/spring-exercise.log" append="true" filePattern="/logs/spring-exercise/spring-exercise.log.%d{yyyyMMdd}">
+            <PatternLayout>
+                <Pattern>%d %-5p [%c] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy  interval="24"  modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile >
+
+    </Appenders>
+
+
+    <Loggers>
+        <logger name="com.chason.springdemo" level="INFO" additivity="false">
+            <appender-ref ref="Console" />
+            <appender-ref ref="FILE" />
+        </logger>
+        <root level="Info">
+            <appender-ref ref="Console" />
+        </root>
+    </Loggers>
+
+</Configuration>

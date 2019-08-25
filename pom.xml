@@ -7,6 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>batch-exercise</module>
+        <module>spring-exercise</module>
     </modules>
 
     <properties>

@@ -8,6 +8,8 @@
     <modules>
         <module>batch-exercise</module>
         <module>spring-exercise</module>
+        <module>spring-stater-demo</module>
+        <module>algorithm-exercise</module>
     </modules>
 
     <properties>

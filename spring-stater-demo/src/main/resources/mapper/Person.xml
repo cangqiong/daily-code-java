@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PersonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="Person">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="first_name" property="firstName"/>
+        <result column="address" property="address"/>
+        <result column="city" property="city"/>
+        <result column="age" property="age"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, last_name, first_name, address, city, age
+    </sql>
+
+
+    <select id="getPersonById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        person
+        where id = #{id}
+    </select>
+</mapper>

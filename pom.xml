@@ -10,6 +10,8 @@
         <module>spring-exercise</module>
         <module>spring-stater-demo</module>
         <module>algorithm-exercise</module>
+        <module>jvm-relearning</module>
+        <module>jvmti</module>
     </modules>
 
     <properties>
@@ -24,8 +26,8 @@
         <slf4j-log4j12.version>1.7.22</slf4j-log4j12.version>
     </properties>
     <name>My daily code for java</name>
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

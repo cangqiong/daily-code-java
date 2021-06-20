@@ -12,6 +12,8 @@
         <module>algorithm-exercise</module>
         <module>jvm-relearning</module>
         <module>jvmti</module>
+        <module>long-polling</module>
+        <module>netty-demo</module>
     </modules>
 
     <properties>
@@ -27,6 +29,21 @@
     </properties>
     <name>My daily code for java</name>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.22.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>1.10.3</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>

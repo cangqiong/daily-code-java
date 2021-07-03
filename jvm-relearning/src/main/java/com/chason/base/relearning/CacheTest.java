@@ -28,6 +28,6 @@ public class CacheTest {
     public static void main(String[] args) {
         cache.put(0L,new AtomicLong(2));
         cache.cleanUp();
-        System.out.println(cache.get(0l).s);
+        System.out.println(cache.getIfPresent(0L).toString());
     }
 }

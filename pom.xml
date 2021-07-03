@@ -32,7 +32,7 @@
         <mockito.version>1.10.19</mockito.version>
         <slf4j-log4j12.version>1.7.22</slf4j-log4j12.version>
         <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
-        <mysql.driver.version>5.1.25</mysql.driver.version>
+        <mysql.driver.version>8.0.16</mysql.driver.version>
         <mybatis-spring-boot.version>2.1.0</mybatis-spring-boot.version>
         <h2.version>1.4.195</h2.version>
         <jmh.version>1.31</jmh.version>

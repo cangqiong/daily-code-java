@@ -14,6 +14,7 @@
         <module>jvmti</module>
         <module>long-polling</module>
         <module>netty-demo</module>
+        <module>tiny-lms-kv-store</module>
     </modules>
 
     <properties>
@@ -30,15 +31,19 @@
         <common-lang3.version>3.5</common-lang3.version>
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
-        <slf4j-log4j12.version>1.7.22</slf4j-log4j12.version>
+        <slf4j.version>1.7.26</slf4j.version>
         <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
         <mysql.driver.version>5.1.25</mysql.driver.version>
         <mybatis-spring-boot.version>2.1.0</mybatis-spring-boot.version>
         <h2.version>1.4.195</h2.version>
         <jmh.version>1.31</jmh.version>
+        <hutool.version>5.7.3</hutool.version>
+        <jackson.version>2.12.3</jackson.version>
+        <log4j2.version>2.9.1</log4j2.version>
 
         <!-- plugin version -->
         <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+        <maven-jar-plugin.version>2.3.2</maven-jar-plugin.version>
         <maven-surefire-plugin.version>2.7.2</maven-surefire-plugin.version>
     </properties>
     <name>My daily code for java</name>
@@ -138,6 +143,29 @@
 
             <!-- Log -->
             <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!--log4j2核心包-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-log4j2</artifactId>
                 <version>${spring-boot.version}</version>
@@ -153,6 +181,27 @@
                 <groupId>org.openjdk.jmh</groupId>
                 <artifactId>jmh-core</artifactId>
                 <version>${jmh.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -209,12 +258,6 @@
                     <target>${java.version}</target>
                     <optimize>true</optimize>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
             </plugin>
         </plugins>
     </build>

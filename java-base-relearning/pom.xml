@@ -16,7 +16,6 @@
 
     <dependencies>
 
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -26,7 +25,6 @@
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

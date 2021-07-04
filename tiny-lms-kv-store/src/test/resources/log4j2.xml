@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn">
+    <Properties>
+        <!-- 配置日志文件输出目录 -->
+        <Property name="LOG_DIR">/logs/tiny-lms-kv-store</Property>
+        <Property name="APP_NAME">tiny-lms-kv-store</Property>
+    </Properties>
     <Appenders>
 
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p] - %l - %m%n" />
         </Console>
 
-        <RollingRandomAccessFile  name="FILE" fileName="/logs/spring-exercise/spring-exercise.log" append="true" filePattern="/logs/spring-exercise/spring-exercise.log.%d{yyyyMMdd}">
-            <PatternLayout>
-                <Pattern>%d %-5p [%c] %m%n</Pattern>
-            </PatternLayout>
+        <RollingFile name="RollingFile" fileName="${LOG_DIR}/${APP_NAME}.log"
+                                 filePattern="${LOG_DIR}/${APP_NAME}.log.%d{yyyyMMdd}">
             <Policies>
-                <TimeBasedTriggeringPolicy  interval="24"  modulate="true"/>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="20M"/>
             </Policies>
-        </RollingRandomAccessFile >
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p] - %l - %m%n" />
+        </RollingFile>
     </Appenders>
 
-
     <Loggers>
-        <logger name="com.chason.base" level="INFO" additivity="false">
-            <appender-ref ref="Console" />
-            <appender-ref ref="FILE" />
+        <logger name="com.chason.base" level="debug" additivity="false">
+            <appender-ref ref="RollingFile"/>
         </logger>
-        <root level="Info">
-            <appender-ref ref="Console" />
+        <logger name="com.chason.base" level="debug" additivity="true">
+            <appender-ref ref="Console"/>
+        </logger>
+        <root level="INFO">
+            <appender-ref ref="RollingFile"/>
         </root>
     </Loggers>
 

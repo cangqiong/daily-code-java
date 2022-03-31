@@ -32,7 +32,7 @@
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
         <slf4j.version>1.7.26</slf4j.version>
-        <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
+        <spring-boot.version>2.5.12</spring-boot.version>
         <mysql.driver.version>5.1.25</mysql.driver.version>
         <mybatis-spring-boot.version>2.1.0</mybatis-spring-boot.version>
         <h2.version>1.4.195</h2.version>
